@@ -1,0 +1,7 @@
+- name:
+  apt:
+      name=bind9
+      state=latest
+      
+- name: Configure the DNS server
+  
