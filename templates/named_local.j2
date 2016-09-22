@@ -1,11 +1,11 @@
-zone "{{ domain_name }}" IN {
+zone "{{ fqdn }}" {
     type master;
     file "/etc/bind/db.{{ domain_name }}";
-}
+};
 
 zone "{{ reverse_ip }}.in-addr.arpa" {
     type master;
     notify no;
-    file "/etc/bind/db.192"
-}
+    file "/etc/bind/db.192";
+};
 

@@ -5,6 +5,9 @@ $TTL    604800
                                        86400      ; Retry
                                        2419200    ; Expire
                                        604800 )   ; Negative Cache TTL
-               
+;               
+                       IN     A       {{ first_ip }}
 @                      IN     NS      {{ fqdn }}.
-{{ hostname }}         IN     A       {{ fqdn }}.
+{% for host in master_entries %}
+{{ host.name }}        IN     A       {{ host.ip }}
+{% endfor%}

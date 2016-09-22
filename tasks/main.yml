@@ -25,6 +25,10 @@
 - name: Set reverse ip
   set_fact:
       reverse_ip: "{{ first_ip.split('.')[2] }}.{{ first_ip.split('.')[1] }}.{{ first_ip.split('.')[0] }}"
+
+- name: Set last ip byte
+  set_fact:
+      first_ip_byte: "{{ first_ip.split('.')[0] }}"
       
 - name: Set last ip byte
   set_fact:
@@ -40,12 +44,18 @@
       src=named_options.j2
       dest="{{ bind_path }}/named.conf.options"      
       
-- name: Configure the named.conf.local file
+- name: Configure the {{ bind_path }}/named.{{ domain_name }} file
   template:
       src=db_master.j2
-      dest="{{ bind_path }}/named.{{ domain_name }}.hyp"
+      dest="{{ bind_path }}/db.{{ domain_name }}"
       
 - name: Configure the named.conf.local file
   template:
-      src=named_local.j2
-      dest="{{ bind_path }}/named.conf.local"
+      src=db_reverse_master.j2
+      dest="{{ bind_path }}/db.{{ first_ip_byte }}"
+
+- name: Ensure bind9 is started and enabled at boot
+  service: 
+    name=bind9
+    state=restarted
+    enabled=yes
