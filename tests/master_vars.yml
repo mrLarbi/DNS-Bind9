@@ -1,0 +1,14 @@
+domain_name: local
+
+is_master: yes             #'yes' or 'no'
+master_entries : [
+    {"name": "www", "ip":"127.0.0.1"}
+]
+slave_hosts: [ "127.0.0.1" ]
+
+is_slave: no             #'yes' or 'no'. If both is_slave and is_master are set on yes, the node will be a master.
+master_host: 127.0.0.1
+
+is_cache: yes              #'yes' or 'no'
+first_forwarder: 8.8.8.8   
+second_forwarder: 8.8.4.4   

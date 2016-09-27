@@ -1,5 +1,8 @@
 - hosts : host
 
+  include_vars:
+      master_vers.yml
+
   roles:
       - role: DNS-Bind9
 
