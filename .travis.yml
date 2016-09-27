@@ -10,6 +10,6 @@ script:
     
     - role_path=/etc/ansible/roles/DNS-Bind9
     
-    - docker run -v "$(pwd)":"$role_path":ro williamyeh/ansible:debian8 $role_path/tests/test.sh $role_path
+    - docker run -v "$(pwd)":"$role_path":ro williamyeh/ansible:debian8 /bin/bash $role_path/tests/test.sh $role_path
     
     - 
