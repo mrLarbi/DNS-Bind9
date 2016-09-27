@@ -1,15 +1,23 @@
 services: docker
 
 env:
-    - distro: debian:jessie
+    - distro: williamyeh/ansible:debian8
 
 before_install:
-    - docker pull williamyeh/ansible:debian8
+    - docker pull "${distro}"
     
 script:
     
     - role_path=/etc/ansible/roles/DNS-Bind9
     
-    - docker run -v "$(pwd)":"$role_path":ro williamyeh/ansible:debian8 /bin/bash $role_path/tests/test.sh $role_path
+    - docker run -d -v "$(pwd)":"$role_path":ro "${distro}" /bin/bash tail -f /dev/null > "${master_id}"
     
-    - 
+    - docker run -d -v "$(pwd)":"$role_path":ro "${distro}" /bin/bash tail -f /dev/null > "${slave_id}"
+    
+    - docker inspect --format '{{ .NetworkSettings.IPAddress }}' "${master_id}" > "${master_ip}"
+    
+    - docker inspect --format '{{ .NetworkSettings.IPAddress }}' "${slave_id}" > "${slave_ip}"
+    
+    - docker exec "${master_id}" /bin/bash $role_path/tests/test_master.sh $role_path
+    
+    - docker exec "${slave_id}" /bin/bash $role_path/tests/test_slave.sh $role_path
