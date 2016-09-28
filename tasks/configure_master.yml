@@ -1,0 +1,14 @@
+- name: Configure the named.conf.local file
+  template:
+      src=named_local.j2
+      dest="{{ bind_path }}/named.conf.local"      
+      
+- name: Configure the {{ bind_path }}/named.{{ domain_name }} file
+  template:
+      src=db_master.j2
+      dest="{{ bind_path }}/db.{{ domain_name }}"
+      
+- name: Configure the named.conf.local file
+  template:
+      src=db_reverse_master.j2
+      dest="{{ bind_path }}/db.{{ first_ip_byte }}"

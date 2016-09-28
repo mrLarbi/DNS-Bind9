@@ -1,0 +1,4 @@
+- name: Configure the named.conf.options file
+  template:
+      src=named_options.j2
+      dest="{{ bind_path }}/named.conf.options"

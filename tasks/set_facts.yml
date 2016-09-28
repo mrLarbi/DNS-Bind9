@@ -1,0 +1,35 @@
+- name: Set hostname
+  set_fact:
+      hostname: "{{ ansible_hostname }}"
+  when: hostname == ""
+  
+- name: Set domain_name
+  set_fact:
+      domain_name: "{{ ansible_domain }}"
+  when: domain_name == ""
+  failed_when: domain_name == ""
+
+- name: Set fqdn
+  set_fact:
+      fqdn: "{{ hostname }}.{{ domain_name }}"
+
+- name: Set mail
+  set_fact:
+      mail: "{{ ansible_user_id }}.{{ domain_name }}"
+  when: mail == ""
+
+- name: get IPV4 address
+  set_fact:
+       first_ip: "{{ ansible_all_ipv4_addresses[0] }}"
+
+- name: Set reverse ip
+  set_fact:
+      reverse_ip: "{{ first_ip.split('.')[2] }}.{{ first_ip.split('.')[1] }}.{{ first_ip.split('.')[0] }}"
+
+- name: Set last ip byte
+  set_fact:
+      first_ip_byte: "{{ first_ip.split('.')[0] }}"
+      
+- name: Set last ip byte
+  set_fact:
+      last_ip_byte: "{{ first_ip.split('.')[3] }}"

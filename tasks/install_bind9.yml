@@ -1,0 +1,17 @@
+- name: Install the latest version of bind9 for Debian
+  apt:
+      name=bind9
+      state=latest
+  when: ansible_os_family == "Debian"
+  
+- name: Install the latest version of bind9 for RedHat
+  yum:
+      name=bind9
+      state=latest
+  when: ansible_os_family == "RedHat"
+  
+- name: Install the latest version of bind9 for ArchLinux
+  pacman:
+      name=bind9
+      state=latest
+  when: ansible_os_family == "ArchLinux"

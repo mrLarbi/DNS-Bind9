@@ -1,59 +1,23 @@
 - include_vars: main_vars.yml
 
-- name: Install the latest version of bind9
-  apt:
-      name=bind9
-      state=latest
+- name: Install Bind9
+  include: install_bind9.yml
 
-- name: Set domain_name
-  set_fact:
-      domain_name: "{{ ansible_domain }}"
-  when: not("{{ ansible_domain }}" == "")
+- name: Set needed facts
+  include: set_facts.yml
 
-- name: Set fqdn
-  set_fact:
-      fqdn: "{{ hostname }}.{{ domain_name }}"
+- name: Configure DNS Cache
+  include: configure_cache.yml
+  when: is_cache == True
+  
+- name: Configure DNS Master
+  include: configure_master.yml
+  when: is_master == True
 
-- name: Set mail
-  set_fact:
-      mail: "{{ ansible_user_id }}.{{ domain_name }}"
-
-- name: get IPV4 address
-  set_fact:
-       first_ip: "{{ ansible_all_ipv4_addresses[0] }}"
-
-- name: Set reverse ip
-  set_fact:
-      reverse_ip: "{{ first_ip.split('.')[2] }}.{{ first_ip.split('.')[1] }}.{{ first_ip.split('.')[0] }}"
-
-- name: Set last ip byte
-  set_fact:
-      first_ip_byte: "{{ first_ip.split('.')[0] }}"
-      
-- name: Set last ip byte
-  set_fact:
-      last_ip_byte: "{{ first_ip.split('.')[3] }}"
-            
-- name: Configure the named.conf.local file
-  template:
-      src=named_local.j2
-      dest="{{ bind_path }}/named.conf.local"
-      
-- name: Configure the named.conf.options file
-  template:
-      src=named_options.j2
-      dest="{{ bind_path }}/named.conf.options"      
-      
-- name: Configure the {{ bind_path }}/named.{{ domain_name }} file
-  template:
-      src=db_master.j2
-      dest="{{ bind_path }}/db.{{ domain_name }}"
-      
-- name: Configure the named.conf.local file
-  template:
-      src=db_reverse_master.j2
-      dest="{{ bind_path }}/db.{{ first_ip_byte }}"
-
+- name: Configure DNS Slave
+  include: configure_slave.yml
+  when: is_master is False and is_slave is True
+  
 - name: Ensure bind9 is started and enabled at boot
   service: 
     name=bind9
