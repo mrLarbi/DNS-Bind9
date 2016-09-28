@@ -1,4 +1,6 @@
-domain_name: local
+hostname: ""
+domain_name: "local"
+mail: ""                   #If not set, the script will define it automatically to $user.$domain
 
 is_master: no             #'yes' or 'no'
 master_entries : [
