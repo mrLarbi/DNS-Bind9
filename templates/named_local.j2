@@ -6,6 +6,6 @@ zone "{{ fqdn }}" {
 zone "{{ reverse_ip }}.in-addr.arpa" {
     type master;
     notify no;
-    file "/etc/bind/db.192";
+    file "/etc/bind/db.{{ first_ip_byte }}";
 };
 
