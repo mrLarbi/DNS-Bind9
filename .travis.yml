@@ -18,6 +18,6 @@ script:
     
     - slave_ip="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${slave_id})"
     
-    - docker exec "${master_id}" /bin/bash $role_path/tests/test_master.sh "${role_path}"
+    - docker exec "${master_id}" /bin/bash $role_path/tests/test_master.sh "${role_path}" "${master_ip}"
     
     - docker exec "${slave_id}" /bin/bash $role_path/tests/test_slave.sh "${role_path}"
