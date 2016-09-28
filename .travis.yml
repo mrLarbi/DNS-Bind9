@@ -10,9 +10,9 @@ script:
     
     - role_path=/etc/ansible/roles/DNS-Bind9
     
-    - master_id="$(docker run -d -v $(pwd):${role_path}:ro ${distro} /bin/bash tail -f /dev/null)"
+    - master_id="$(docker run -d -v $(pwd):${role_path}:ro ${distro} tail -f /dev/null)"
     
-    - slave_id="$(docker run -d -v $(pwd):${role_path}:ro ${distro} /bin/bash tail -f /dev/null)"
+    - slave_id="$(docker run -d -v $(pwd):${role_path}:ro ${distro} tail -f /dev/null)"
     
     - master_ip="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${master_id})"
     
