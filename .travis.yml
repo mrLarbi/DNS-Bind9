@@ -8,7 +8,7 @@ before_install:
     
 script:
     
-    - role_path=
+    - role_path=/etc/ansible/roles/DNS-Bind9
     
     - hostname=yoda
     
