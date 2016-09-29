@@ -5,6 +5,8 @@ conf_domain="jedi"
 ansible-playbook $role_path/tests/test_master.yml -i $role_path/tests/hosts \
             --extra-vars "hostname=$conf_hostname" \
             --extra-vars "domain_name=$conf_domain" \
+            --extra-vars "{\"master_entries\":[{\"name\": \"www\", \"ip\":\"${dns_master_ip}\"}]}" \
+            --extra-vars "domain_name=$conf_domain" \
             
 echo "nameserver $dns_master_ip" > /etc/resolv.conf 
 

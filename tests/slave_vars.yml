@@ -3,9 +3,7 @@ domain_name: "local"
 mail: ""                   #If not set, the script will define it automatically to $user.$domain
 
 is_master: no             #'yes' or 'no'
-master_entries : [
-    {"name": "www", "ip":"127.0.0.1"}
-]
+master_entries : []
 slave_hosts: [ "127.0.0.1" ]
 
 is_slave: yes             #'yes' or 'no'. If both is_slave and is_master are set on yes, the node will be a master.
