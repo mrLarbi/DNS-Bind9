@@ -1,0 +1,8 @@
+- hosts : host
+
+  vars_files:
+    - slave_vars.yml
+      
+  roles:
+      - role: DNS-Bind9
+
