@@ -1,6 +1,6 @@
 - name: Configure the named.conf.local file
   template:
-      src=named_local.j2
+      src=named_local_master.j2
       dest="{{ bind_path }}/named.conf.local"      
       
 - name: Configure the {{ bind_path }}/named.{{ domain_name }} file
