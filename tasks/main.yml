@@ -16,7 +16,7 @@
 
 - name: Configure DNS Slave
   include: configure_slave.yml
-  when: is_master is False and is_slave is True
+  when: is_master == False and is_slave == True
   
 - name: Ensure bind9 is started and enabled at boot
   service: 
