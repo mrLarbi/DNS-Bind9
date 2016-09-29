@@ -10,9 +10,9 @@ script:
     
     - role_path=/etc/ansible/roles/DNS-Bind9
     
-    - hostname=yoda
+    - conf_hostname=yoda
     
-    - domain=jedi
+    - conf_domain=jedi
     
     - master_id="$(docker run -d -v $(pwd):${role_path}:ro ${distro} tail -f /dev/null)"
     
@@ -22,9 +22,9 @@ script:
     
     - slave_ip="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${slave_id})"
     
-    - docker exec "${master_id}" /bin/bash $role_path/tests/test_master.sh "${role_path}" "${master_ip}"  "${slave_ip}" "${hostname}" "${domain}"
+    - docker exec "${master_id}" /bin/bash $role_path/tests/test_master.sh "${role_path}" "${master_ip}"  "${slave_ip}" "${conf_hostname}" "${conf_domain}"
     
-    - docker exec "${slave_id}" /bin/bash $role_path/tests/test_slave.sh "${role_path}" "${master_ip}" "${slave_ip}" "${hostname}" "${domain}"
+    - docker exec "${slave_id}" /bin/bash $role_path/tests/test_slave.sh "${role_path}" "${master_ip}" "${slave_ip}" "${conf_hostname}" "${conf_domain}"
     
     - docker kill "${master_id}"
     

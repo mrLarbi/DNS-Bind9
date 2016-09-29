@@ -10,13 +10,17 @@ zone "{{ fqdn }}" {
     type master;
     file "/etc/bind/db.{{ domain_name }}";
     {% if slave_hosts|length > 1 %}
-    allow-transfer { slaves; }
+    allow-transfer { slaves; };
     {% endif %}
+    notify yes;
 };
 
 zone "{{ reverse_ip }}.in-addr.arpa" {
     type master;
     notify no;
     file "/etc/bind/db.{{ first_ip_byte }}";
+    {% if slave_hosts|length > 1 %}
+    allow-transfer { slaves; };
+    {% endif %}
 };
 

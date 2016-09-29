@@ -12,5 +12,5 @@ is_slave: no             #'yes' or 'no'. If both is_slave and is_master are set 
 master_host: 127.0.0.1
 
 is_cache: yes              #'yes' or 'no'
-first_forwarder: 8.8.8.8   
-second_forwarder: 8.8.4.4   
+first_forwarder: 8.8.8.8
+second_forwarder: 8.8.4.4
