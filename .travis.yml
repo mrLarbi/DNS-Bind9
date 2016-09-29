@@ -28,4 +28,4 @@ script:
     
     - docker kill "${master_id}"
     
-    - docker exec "${slave_id}" ping -c 4 "${hostname}"."${domain}"
+    - docker exec "${slave_id}" ping -c 4 "${conf_hostname}"."${conf_domain}"
