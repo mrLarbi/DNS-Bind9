@@ -8,7 +8,11 @@ before_install:
     
 script:
     
-    - role_path=/etc/ansible/roles/DNS-Bind9
+    - role_path=
+    
+    - hostname=yoda
+    
+    - domain=jedi
     
     - master_id="$(docker run -d -v $(pwd):${role_path}:ro ${distro} tail -f /dev/null)"
     
@@ -18,6 +22,10 @@ script:
     
     - slave_ip="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${slave_id})"
     
-    - docker exec "${master_id}" /bin/bash $role_path/tests/test_master.sh "${role_path}" "${master_ip}"
+    - docker exec "${master_id}" /bin/bash $role_path/tests/test_master.sh "${role_path}" "${master_ip}"  "${slave_ip}" "${hostname}" "${domain}"
     
-    - docker exec "${slave_id}" /bin/bash $role_path/tests/test_slave.sh "${role_path}" "${master_ip}" "${slave_ip}"
+    - docker exec "${slave_id}" /bin/bash $role_path/tests/test_slave.sh "${role_path}" "${master_ip}" "${slave_ip}" "${hostname}" "${domain}"
+    
+    - docker kill "${master_id}"
+    
+    - docker exec "${slave_id}" ping -c 4 "${hostname}"."${domain}"
