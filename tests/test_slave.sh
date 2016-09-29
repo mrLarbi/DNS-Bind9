@@ -10,6 +10,8 @@ ansible-playbook $role_path/tests/test_slave.yml -i $role_path/tests/hosts \
             
 echo "nameserver $dns_slave_ip" > /etc/resolv.conf
 
+sleep 5
+
 #test master
 ping -c 4 www.$conf_hostname.$conf_domain
 
