@@ -7,12 +7,12 @@ ansible-playbook $role_path/tests/test_master.yml -i $role_path/tests/hosts \
             --extra-vars "hostname=$conf_hostname" \
             --extra-vars "domain_name=$conf_domain" \
             --extra-vars "{\"master_entries\":[{\"name\": \"www\", \"ip\":\"${dns_master_ip}\"}]}" \
-            --extra-vars "{\"slave_hosts\":[\"${dns_slave_ip}\"]}"
+            --extra-vars "{\"slave_hosts\":[\"${dns_slave_ip}\"]}" || exit 1
             
 echo "nameserver $dns_master_ip" > /etc/resolv.conf 
 
 #test master
-ping -c 4 www.$conf_hostname.$conf_domain
+ping -c 4 www.$conf_hostname.$conf_domain || exit 1
 
 #test forwarders
-ping -c 4 www.google.com
+ping -c 4 www.google.com || exit 1
