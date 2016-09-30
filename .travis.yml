@@ -2,6 +2,12 @@ services: docker
 
 env:
     - distro: williamyeh/ansible:debian8
+    - distro: williamyeh/ansible:debian7
+    - distro: williamyeh/ansible:ubuntu16.04
+    - distro: williamyeh/ansible:ubuntu14.04
+    - distro: williamyeh/ansible:ubuntu12.04
+    - distro: williamyeh/ansible:centos7
+    - distro: williamyeh/ansible:centos6
 
 before_install:
     - docker pull "${distro}"
