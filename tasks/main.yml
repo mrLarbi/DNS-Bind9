@@ -1,5 +1,7 @@
 - include_vars: main_vars.yml
 
+- include_vars: "{{ ansible_os_family }}"_vars.yml
+
 - name: Install Bind9
   include: install_bind9.yml
 

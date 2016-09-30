@@ -15,3 +15,14 @@
       name=bind9
       state=latest
   when: ansible_os_family == "ArchLinux"
+
+- name: Ensure the directory {{ bind_path }} is present
+  file:
+      path="{{ bind_path }}"
+      state=directory
+      mode=0755
+
+- name: Configure the {{ named_conf_path }}
+  template:
+      src=named.j2
+      dest="{{ named_conf_path }}"
