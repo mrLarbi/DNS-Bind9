@@ -22,6 +22,12 @@
       state=directory
       mode=0755
 
+- name: Ensure the directory {{ bind_path }} is present
+  file:
+      path=/var/cache/bind
+      state=directory
+      mode=775
+
 - name: Configure the {{ named_conf_path }}
   template:
       src=named.j2
