@@ -1,1 +1,2 @@
 named_conf_path: "/etc/bind/named.conf"
+bind_service: "bind9"

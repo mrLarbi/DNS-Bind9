@@ -22,6 +22,6 @@
   
 - name: Ensure bind9 is started and enabled at boot
   service: 
-    name=bind9
+    name={{ bind_service }}
     state=restarted
     enabled=yes

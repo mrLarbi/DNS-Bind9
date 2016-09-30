@@ -1,1 +1,2 @@
 named_conf_path: "/etc/named.conf"
+bind_service: "named"
