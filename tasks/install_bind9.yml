@@ -22,6 +22,12 @@
       state=directory
       mode=0755
 
+- name: Ensure the file {{ bind_path }}/named.conf.options is present
+  file:
+      path="{{ bind_path }}/named.conf.options"
+      state=touch
+      mode=0755
+
 - name: Ensure the directory /var/cache/bind is present
   file:
       path=/var/cache/bind
