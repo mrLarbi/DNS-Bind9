@@ -18,7 +18,7 @@ None.
 ## Installation
 
 ```
-ansible-galaxy install mrlarbi.dns-bind
+ansible-galaxy install mrLarbi.dns-bind
 ```
 
 ## Role Variables
@@ -88,7 +88,7 @@ Set up a caching node :
 
     - hosts: host
       roles:
-         - { role: mrlarbi.dns-bind }
+         - { role: mrLarbi.dns-bind }
 
 ## License
 
