@@ -59,30 +59,30 @@ bind_second_forwarder|8.8.4.4| Ip of the second forwarder.
 
 - Set up a master node :
 
-    bind_hostname: "yoda"
-    bind_domain_name: "jedi"
-    bind_mail: "yoda.jedi"
-    bind_is_master: yes
-    bind_master_entries : [ {"name": "www", "ip":"127.0.0.1"} ]
-    bind_slave_hosts: [ "192.168.1.3" ]
-    bind_notify: yes
+      bind_hostname: "yoda"
+      bind_domain_name: "jedi"
+      bind_mail: "yoda.jedi"
+      bind_is_master: yes
+      bind_master_entries : [ {"name": "www", "ip":"127.0.0.1"} ]
+      bind_slave_hosts: [ "192.168.1.3" ]
+      bind_notify: yes
 
 - Set up a slave node :
 
-    bind_hostname: "obi"
-    bind_domain_name: "jedi"
-    bind_mail: "obi.jedi"
-    bind_is_slave: no
-    bind_master_host: "192.168.1.2"
+      bind_hostname: "obi"
+      bind_domain_name: "jedi"
+      bind_mail: "obi.jedi"
+      bind_is_slave: no
+      bind_master_host: "192.168.1.2"
     
 - Set up a caching node :
 
-    bind_hostname: "ani"
-    bind_domain_name: "jedi"
-    bind_mail: "ani.jedi"
-    bind_is_caching: yes
-    bind_first_forwarder: 8.8.8.8
-    bind_second_forwarder: 8.8.4.4
+      bind_hostname: "ani"
+      bind_domain_name: "jedi"
+      bind_mail: "ani.jedi"
+      bind_is_caching: yes
+      bind_first_forwarder: 8.8.8.8
+      bind_second_forwarder: 8.8.4.4
     
 ## Example
 
