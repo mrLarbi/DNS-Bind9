@@ -57,7 +57,7 @@ bind_second_forwarder|8.8.4.4| Ip of the second forwarder.
 
 ### Configuration example
 
-- Set up a master node :
+Set up a master node :
 
       bind_hostname: "yoda"
       bind_domain_name: "jedi"
@@ -67,7 +67,7 @@ bind_second_forwarder|8.8.4.4| Ip of the second forwarder.
       bind_slave_hosts: [ "192.168.1.3" ]
       bind_notify: yes
 
-- Set up a slave node :
+Set up a slave node :
 
       bind_hostname: "obi"
       bind_domain_name: "jedi"
@@ -75,7 +75,7 @@ bind_second_forwarder|8.8.4.4| Ip of the second forwarder.
       bind_is_slave: no
       bind_master_host: "192.168.1.2"
     
-- Set up a caching node :
+Set up a caching node :
 
       bind_hostname: "ani"
       bind_domain_name: "jedi"
