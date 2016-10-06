@@ -34,11 +34,11 @@ bind_domain_name|local|The node domain. Defined automatically if not set.
 
 |Name|Default|Description|
 |----|----|-------|
-bind_is_master|yes| Is the node a master. 'yes' or 'no'.
+bind_is_master|no| Is the node a master. 'yes' or 'no'.
 bind_mail||The zone email. Defined automatically if not set (to $user.$domain).
 bind_master_entries|| Zone entries. List of {"name":"something", "ip": "some ip"}.
 bind_slave_hosts|| List of slaves (Allow transfer).
-bind_notify|yes| 
+bind_notify|no| 
 
 ### Slave
 
@@ -51,9 +51,9 @@ bind_master_host|| Master ip.
 
 |Name|Default|Description|
 |----|----|-------|
-bind_is_caching|yes| Is a caching node. 'yes' or 'no'
-bind_first_forwarder|8.8.8.8| Ip of the first forwarder.
-bind_second_forwarder|8.8.4.4| Ip of the second forwarder.
+bind_is_caching|no| Is a caching node. 'yes' or 'no'
+bind_first_forwarder|| Ip of the first forwarder.
+bind_second_forwarder|| Ip of the second forwarder.
 
 ## Configuration example
 
