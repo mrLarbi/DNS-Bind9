@@ -2,25 +2,25 @@ services: docker
 
 env:
     - distro: mrlarbi/ansible:debian8
-      command: tail -f /dev/null
+      command: "tail -f /dev/null"
       run_options: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
     - distro: mrlarbi/ansible:debian7
-      command: tail -f /dev/null
+      command: "tail -f /dev/null"
       run_options: ""
     - distro: mrlarbi/ansible:ubuntu16.04
-      command: tail -f /dev/null
+      command: "tail -f /dev/null"
       run_options: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
     - distro: mrlarbi/ansible:ubuntu14.04
-      command: tail -f /dev/null
+      command: "tail -f /dev/null"
       run_options: ""
     - distro: mrlarbi/ansible:ubuntu12.04
-      command: tail -f /dev/null
+      command: "tail -f /dev/null"
       run_options: ""
     - distro: mrlarbi/ansible:centos7
       command: /usr/lib/systemd/systemd
       run_options: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
     - distro: mrlarbi/ansible:centos6
-      command: tail -f /dev/null
+      command: "tail -f /dev/null"
       run_options: ""
 
 before_install:
