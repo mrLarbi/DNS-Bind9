@@ -1,11 +1,11 @@
 # DNS-Bind9
 
+[![Build Status](https://travis-ci.org/mrLarbi/DNS-Bind9.svg?branch=master)](https://travis-ci.org/mrLarbi/DNS-Bind9)
+
 ## Description
 
 Ansible role to install and configure a DNS server using Bind9.
 The node installed will act as a master or/and a slave, with/without forwarders.
-
-[![Build Status](https://travis-ci.org/mrLarbi/DNS-Bind9.svg?branch=master)](https://travis-ci.org/mrLarbi/DNS-Bind9)
 
 ## Requirements
 
@@ -23,14 +23,14 @@ ansible-galaxy install mrlarbi.dns-bind
 
 ## Role Variables
 
-# General
+### General
 
 |Name|Default|Description|
 |----|----|-------|
 bind_hostname||The node hostname. Defined automatically if not set.
 bind_domain_name|local|The node domain. Defined automatically if not set.
 
-# Master
+### Master
 
 |Name|Default|Description|
 |----|----|-------|
@@ -40,14 +40,14 @@ bind_master_entries|| Zone entries. List of {"name":"something", "ip": "some ip"
 bind_slave_hosts|| List of slaves (Allow transfer).
 bind_notify|yes| 
 
-# Slave
+### Slave
 
 |Name|Default|Description|
 |----|----|-------|
 bind_is_slave|no| Is the node a slave. 'yes' or 'no'.
 bind_master_host|| Master ip.
 
-# Caching
+### Caching
 
 |Name|Default|Description|
 |----|----|-------|
@@ -55,7 +55,7 @@ bind_is_caching|yes| Is a caching node. 'yes' or 'no'
 bind_first_forwarder|8.8.8.8| Ip of the first forwarder.
 bind_second_forwarder|8.8.4.4| Ip of the second forwarder.
 
-### Configuration example
+## Configuration example
 
 Set up a master node :
 
@@ -90,6 +90,6 @@ Set up a caching node :
       roles:
          - { role: mrlarbi.dns-bind }
 
-# License
+## License
 
 GNU General Public License (GPL) V3
