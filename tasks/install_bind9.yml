@@ -37,4 +37,4 @@
 - name: Configure the {{ named_conf_path }}
   template:
       src=named.j2
-      dest="{{ named_conf_path }}"
+      dest="{{ bind_named_conf_path }}"

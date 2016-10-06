@@ -1,16 +1,25 @@
-hostname: ""               #If not set, the script will try to define it automatically
-domain_name: "local"       #If not set, the script will try to define it automatically
-mail: ""                   #If not set, the script will define it automatically to $user.$domain
+# General configuration
 
-is_master: yes             #'yes' or 'no'
-master_entries : [
+bind_hostname: ""                 #If not set, the script will try to define it automatically
+bind_domain_name: "local"         #If not set, the script will try to define it automatically
+bind_mail: ""                     #If not set, the script will define it automatically to $user.$domain
+
+# Master Configuration
+
+bind_is_master: yes               #'yes' or 'no'
+bind_master_entries : [
     {"name": "www", "ip":"127.0.0.1"}
 ]                          
-slave_hosts: []           # Ip of the slave nodes.
+bind_slave_hosts: []              # Ip of the slave nodes.
+bind_notify: yes                  #'yes' or 'no'
 
-is_slave: no               #'yes' or 'no'. If both is_slave and is_master are set on yes, the node will be a master.
-master_host: ""            #Ip of the master node.
+# Slave configuration
 
-is_cache: yes              #'yes' or 'no'
-first_forwarder: 8.8.8.8   #Ip of the first forwarder
-second_forwarder: 8.8.4.4  #Ip of the second forwarder
+bind_is_slave: yes                #'yes' or 'no'. If both is_slave and is_master are set on yes, the node will be a master.
+bind_master_host: ""              #Ip of the master node.
+
+# Cache configuration
+
+bind_is_caching: yes              #'yes' or 'no'
+bind_first_forwarder: 8.8.8.8     #Ip of the first forwarder
+bind_second_forwarder: 8.8.4.4    #Ip of the second forwarder

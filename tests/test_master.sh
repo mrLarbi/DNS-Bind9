@@ -4,10 +4,10 @@ dns_slave_ip=$3
 conf_hostname=$4
 conf_domain=$5
 ansible-playbook $role_path/tests/test_master.yml -i $role_path/tests/hosts \
-            --extra-vars "hostname=$conf_hostname" \
-            --extra-vars "domain_name=$conf_domain" \
-            --extra-vars "{\"master_entries\":[{\"name\": \"www\", \"ip\":\"${dns_master_ip}\"}]}" \
-            --extra-vars "{\"slave_hosts\":[\"${dns_slave_ip}\"]}" || exit 1
+            --extra-vars "bind_hostname=$conf_hostname" \
+            --extra-vars "bind_domain_name=$conf_domain" \
+            --extra-vars "{\"bind_master_entries\":[{\"name\": \"www\", \"ip\":\"${dns_master_ip}\"}]}" \
+            --extra-vars "{\"bind_slave_hosts\":[\"${dns_slave_ip}\"]}" || exit 1
             
 echo "nameserver $dns_master_ip" > /etc/resolv.conf 
 

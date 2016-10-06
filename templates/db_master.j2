@@ -1,13 +1,13 @@
 $TTL    604800
-@                      IN     SOA     {{ fqdn }}. {{ mail }}.(
+@                      IN     SOA     {{ fqdn }}. {{ bind_mail }}.(
                                        1          ; Serial
                                        604800     ; Refresh
                                        86400      ; Retry
                                        2419200    ; Expire
                                        604800 )   ; Negative Cache TTL
 ;               
-                       IN     A       {{ first_ip }}
+                       IN     A       {{ ip }}
 @                      IN     NS      {{ fqdn }}.
-{% for host in master_entries %}
+{% for host in bind_master_entries %}
 {{ host.name }}        IN     A       {{ host.ip }}
 {% endfor%}

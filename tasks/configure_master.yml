@@ -3,10 +3,10 @@
       src=named_local_master.j2
       dest="{{ bind_path }}/named.conf.local"      
       
-- name: Configure the {{ bind_path }}/named.{{ domain_name }} file
+- name: Configure the {{ bind_path }}/named.{{ bind_domain_name }} file
   template:
       src=db_master.j2
-      dest="{{ bind_path }}/db.{{ domain_name }}"
+      dest="{{ bind_path }}/db.{{ bind_domain_name }}"
       
 - name: Configure the named.conf.local file
   template:

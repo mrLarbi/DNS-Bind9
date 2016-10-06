@@ -10,15 +10,15 @@
 
 - name: Configure DNS Cache
   include: configure_cache.yml
-  when: is_cache == True
+  when: bind_is_caching == True
   
 - name: Configure DNS Master
   include: configure_master.yml
-  when: is_master == True
+  when: bind_is_master == True
 
 - name: Configure DNS Slave
   include: configure_slave.yml
-  when: is_master == False and is_slave == True
+  when: bind_is_master == False and bind_is_slave == True
   
 - name: Ensure bind9 is started and enabled at boot
   service: 
