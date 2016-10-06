@@ -1,2 +1,7 @@
 include "{{ bind_path }}/named.conf.options";
-include "{{ bind_path }}/named.conf.local";
+{% if bind_is_master %}
+include "{{ bind_path }}/named_master.conf.local";
+{% endif %}
+{% if bind_is_slave %}
+include "{{ bind_path }}/named_slave.conf.local";
+{% endif%}
