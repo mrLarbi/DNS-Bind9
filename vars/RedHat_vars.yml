@@ -1,6 +1,6 @@
 bind_path: "/etc/named"
 bind_named_conf_path: "/etc/named.conf"
-bind_slave_transfer_path: "/var/named/slaves"
+bind_var_directory_path: "/var/named"
 bind_service: "named"
 bind_user: named
 bind_group: named

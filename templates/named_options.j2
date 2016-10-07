@@ -1,5 +1,5 @@
 options {
-        directory "/var/cache/bind";
+        directory "{{ bind_var_directory_path }}";
 
          {% if bind_is_caching %}
          forwarders {

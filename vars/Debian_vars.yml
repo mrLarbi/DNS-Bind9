@@ -1,6 +1,6 @@
 bind_path: "/etc/bind"
 bind_named_conf_path: "/etc/bind/named.conf"
-bind_slave_transfer_path: "/var/cache/bind"
+bind_var_directory_path: "/var/cache/bind"
 bind_service: "bind9"
 bind_user: bind
 bind_group: bind
