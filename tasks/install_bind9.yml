@@ -34,7 +34,7 @@
       state=directory
       mode=775
 
-- name: Configure the {{ named_conf_path }}
+- name: Configure the {{ bind_named_conf_path }}
   template:
       src=named.j2
       dest="{{ bind_named_conf_path }}"
