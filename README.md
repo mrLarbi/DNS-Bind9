@@ -71,7 +71,7 @@ Set up a master node :
 
 Set up a slave node :
 
-      bind_hostname: "obi"
+      bind_hostname: "yoda"
       bind_domain_name: "jedi"
       bind_ip: "192.168.1.3"
       bind_is_slave: yes
@@ -79,7 +79,7 @@ Set up a slave node :
     
 Set up a caching node :
 
-      bind_hostname: "ani"
+      bind_hostname: "yoda"
       bind_domain_name: "jedi"
       bind_is_caching: yes
       bind_first_forwarder: 8.8.8.8
