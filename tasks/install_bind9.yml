@@ -21,18 +21,24 @@
       path="{{ bind_path }}"
       state=directory
       mode=0755
+      owner="{{ bind_user }}"
+      group="{{ bind_user }}"
 
 - name: Ensure the file {{ bind_path }}/named.conf.options is present
   file:
       path="{{ bind_path }}/named.conf.options"
       state=touch
       mode=0755
+      owner="{{ bind_user }}"
+      group="{{ bind_user }}"
 
 - name: Ensure the directory /var/cache/bind is present
   file:
       path=/var/cache/bind
       state=directory
       mode=775
+      owner="{{ bind_user }}"
+      group="{{ bind_user }}"
 
 - name: Configure the {{ bind_named_conf_path }}
   template:

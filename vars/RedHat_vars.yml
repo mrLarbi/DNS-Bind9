@@ -1,2 +1,4 @@
 bind_named_conf_path: "/etc/named.conf"
 bind_service: "named"
+bind_user: named
+bind_group: named
