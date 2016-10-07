@@ -8,7 +8,7 @@ acl slaves {
 
 zone "{{ fqdn }}" {
     type master;
-    file "/etc/bind/db.{{ bind_domain_name }}";
+    file "{{ bind_path }}/db.{{ bind_domain_name }}";
     {% if bind_slave_hosts|length > 1 %}
     allow-transfer { slaves; };
     {% endif %}
@@ -18,7 +18,7 @@ zone "{{ fqdn }}" {
 zone "{{ reverse_ip }}.in-addr.arpa" {
     type master;
     notify {{ bind_notify }};
-    file "/etc/bind/db.{{ first_ip_byte }}";
+    file "{{ bind_path }}/db.{{ first_ip_byte }}";
     {% if bind_slave_hosts|length > 1 %}
     allow-transfer { slaves; };
     {% endif %}

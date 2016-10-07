@@ -9,8 +9,8 @@
   include: set_facts.yml
 
 - name: Configure DNS Cache
-  include: configure_cache.yml
-  when: bind_is_caching == True
+  include: configure_options.yml
+  when: bind_is_master == True
   
 - name: Configure DNS Master
   include: configure_master.yml
