@@ -2,13 +2,14 @@
 
 bind_hostname: ""
 bind_domain_name: "local"
-bind_mail: ""
+bind_ip: ""
 
 # Master Configuration
 
 bind_is_master: no
 bind_master_entries : []
 bind_slave_hosts: []
+bind_mail: ""
 bind_notify: no
 
 # Slave configuration

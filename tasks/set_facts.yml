@@ -9,6 +9,12 @@
       bind_domain_name: "{{ ansible_domain }}"
   when: bind_domain_name == ""
   failed_when: domain_name == ""
+  
+- name: Set ip
+  set_fact:
+      bind_ip: "{{ ansible_all_ipv4_addresses[0] }}"
+  when: bind_ip == ""
+  failed_when: bind_ip == ""
 
 - name: Set fqdn
   set_fact:
@@ -19,18 +25,14 @@
       bind_mail: "{{ ansible_user_id }}.{{ bind_domain_name }}"
   when: bind_mail == ""
 
-- name: get IPV4 address
-  set_fact:
-       ip: "{{ ansible_all_ipv4_addresses[0] }}"
-
 - name: Set reverse ip
   set_fact:
-      reverse_ip: "{{ ip.split('.')[2] }}.{{ ip.split('.')[1] }}.{{ ip.split('.')[0] }}"
+      reverse_ip: "{{ bind_ip.split('.')[2] }}.{{ bind_ip.split('.')[1] }}.{{ bind_ip.split('.')[0] }}"
 
 - name: Set last ip byte
   set_fact:
-      first_ip_byte: "{{ ip.split('.')[0] }}"
+      first_ip_byte: "{{ bind_ip.split('.')[0] }}"
       
 - name: Set last ip byte
   set_fact:
-      last_ip_byte: "{{ ip.split('.')[3] }}"
+      last_ip_byte: "{{ bind_ip.split('.')[3] }}"

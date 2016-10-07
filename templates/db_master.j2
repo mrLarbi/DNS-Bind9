@@ -6,7 +6,7 @@ $TTL    604800
                                        2419200    ; Expire
                                        604800 )   ; Negative Cache TTL
 ;               
-                       IN     A       {{ ip }}
+                       IN     A       {{ bind_ip }}
 @                      IN     NS      {{ fqdn }}.
 {% for host in bind_master_entries %}
 {{ host.name }}        IN     A       {{ host.ip }}
