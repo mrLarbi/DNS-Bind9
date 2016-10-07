@@ -72,7 +72,7 @@ Set up a slave node :
       bind_hostname: "obi"
       bind_domain_name: "jedi"
       bind_mail: "obi.jedi"
-      bind_is_slave: no
+      bind_is_slave: yes
       bind_master_host: "192.168.1.2"
     
 Set up a caching node :
