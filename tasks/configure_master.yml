@@ -1,14 +1,20 @@
 - name: Configure the named_master.conf.local file
   template:
       src=named_local_master.j2
-      dest="{{ bind_path }}/named_master.conf.local"      
+      dest="{{ bind_path }}/named_master.conf.local"
+      owner="{{ bind_user }}"
+      group="{{ bind_user }}"      
       
 - name: Configure the {{ bind_path }}/named.{{ bind_domain_name }} file
   template:
       src=db_master.j2
       dest="{{ bind_path }}/db.{{ bind_domain_name }}"
+      owner="{{ bind_user }}"
+      group="{{ bind_user }}"
       
 - name: Configure the named.conf.local file
   template:
       src=db_reverse_master.j2
       dest="{{ bind_path }}/db.{{ first_ip_byte }}"
+      owner="{{ bind_user }}"
+      group="{{ bind_user }}"

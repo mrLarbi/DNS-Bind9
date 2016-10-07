@@ -1,4 +1,6 @@
 - name: Configure the named_slave.conf.local file
   template:
       src=named_local_slave.j2
-      dest="{{ bind_path }}/named_slave.conf.local"     
+      dest="{{ bind_path }}/named_slave.conf.local"
+      owner="{{ bind_user }}"
+      group="{{ bind_user }}"

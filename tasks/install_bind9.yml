@@ -44,3 +44,5 @@
   template:
       src=named.j2
       dest="{{ bind_named_conf_path }}"
+      owner="{{ bind_user }}"
+      group="{{ bind_user }}"
