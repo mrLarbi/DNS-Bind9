@@ -6,7 +6,7 @@ zone "{{ fqdn }}" {
 
 zone "{{ reverse_ip }}.in-addr.arpa" {
     type slave;
-    file "/var/cache/bind/db.{{ first_ip_byte }}";
+    file "{{ bind_slave_transfer_path }}/db.{{ first_ip_byte }}";
     masters { {{ bind_master_host }}; };
 };
 
