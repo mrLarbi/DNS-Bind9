@@ -1,2 +1,1 @@
 bind_path: "/etc/bind"
-bind_hostname: "{{ ansible_hostname }}"
