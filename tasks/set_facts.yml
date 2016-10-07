@@ -2,13 +2,13 @@
   set_fact:
       bind_hostname: "{{ ansible_hostname }}"
   when: bind_hostname == ""
-  failed_when: domain_name == ""
+  failed_when: bind_hostname == ""
   
-- name: Set domain_name
+- name: Set domain name
   set_fact:
       bind_domain_name: "{{ ansible_domain }}"
   when: bind_domain_name == ""
-  failed_when: domain_name == ""
+  failed_when: bind_domain_name == ""
   
 - name: Set ip
   set_fact:
