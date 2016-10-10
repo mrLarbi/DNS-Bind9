@@ -4,7 +4,7 @@
 
 ## Description
 
-Ansible role to install and configure a DNS server using Bind9.
+**[Ansible role](https://galaxy.ansible.com/mrLarbi/dns-bind/)** to install and configure a DNS server using Bind9.
 The node installed will act as a master or/and a slave, with/without forwarders.
 
 ## Requirements
