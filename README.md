@@ -30,6 +30,9 @@ ansible-galaxy install mrLarbi.dns-bind
 bind_hostname||The node hostname. Defined automatically if not set.
 bind_domain_name|local|The node domain. Defined automatically if not set.
 bind_ip||The node's ip. Defined automatically if not set.
+bind_listen_on|any|Listening addresses. Values : none, any, localhost, localnet. An ip sequence can also be given (Example : "127.0.0.1; 192.168.0.1").
+bind_listen_on_v6|none|Listening addresses for IPV6. Values : none, any, localhost, localnet. An ip sequence can also be given (Example : "127.0.0.1; 192.168.0.1").
+
 
 ### Master
 
