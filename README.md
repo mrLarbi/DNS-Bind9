@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mrLarbi/DNS-Bind9.svg?branch=master)](https://travis-ci.org/mrLarbi/DNS-Bind9)
 [![Github License](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000)](LICENSE)
-[![Ansible Role](https://img.shields.io/badge/role-mrLarbi.dns--bind-blue.svg)](https://img.shields.io/badge/ansible--galaxy-mrLarbi.dns--bind-blue.svg)
+[![Ansible Role](https://img.shields.io/badge/ansible--galaxy-mrLarbi.dns--bind-blue.svg)](https://img.shields.io/badge/ansible--galaxy-mrLarbi.dns--bind-blue.svg)
 
 ## Description
 
