@@ -12,6 +12,6 @@ options {
         auth-nxdomain no;
         version none;
 
-        listen-on { {{ bind_listen_on }}; };
-        listen-on-v6 { {{ bind_listen_on_v6 }}; };
+        listen-on {% if bind_listen_on.port != "" %} port {{ bind_listen_on.port }} {% endif %} { {{ bind_listen_on.ip }}; };
+        listen-on-v6 {% if bind_listen_on_v6.port != "" %} port {{ bind_listen_on_v6.port }} {% endif %} { {{ bind_listen_on_v6.ip }}; };
 };

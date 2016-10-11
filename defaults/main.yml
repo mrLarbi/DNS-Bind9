@@ -3,8 +3,8 @@
 bind_hostname: ""
 bind_domain_name: "local"
 bind_ip: ""
-bind_listen_on: any
-bind_listen_on_v6: none
+bind_listen_on: {"ip":"any", "port":""}
+bind_listen_on_v6: {"ip":"none", "port":""}
 
 # Master Configuration
 
