@@ -4,7 +4,7 @@ bind_hostname: ""
 bind_domain_name: "local"
 bind_ip: ""
 bind_listen_on: any
-bind_listen_on_v6: any
+bind_listen_on_v6: none
 
 # Master Configuration
 
