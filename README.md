@@ -1,6 +1,8 @@
 # DNS-Bind9
 
 [![Build Status](https://travis-ci.org/mrLarbi/DNS-Bind9.svg?branch=master)](https://travis-ci.org/mrLarbi/DNS-Bind9)
+[![Github License](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000)](LICENSE)
+[![Ansible Role](https://img.shields.io/ansible/role/3078.svg?maxAge=2592000)](https://galaxy.ansible.com/mrLarbi/dns-bind/)
 
 ## Description
 
