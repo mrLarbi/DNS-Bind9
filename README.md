@@ -30,8 +30,8 @@ ansible-galaxy install mrLarbi.dns-bind
 bind_hostname||The node hostname. Defined automatically if not set.
 bind_domain_name|local|The node domain. Defined automatically if not set.
 bind_ip||The node's ip. Defined automatically if not set.
-bind_listen_on|any|Listening addresses. Values : none, any, localhost, localnet. An ip sequence can also be given (Example : "127.0.0.1; 192.168.0.1").
-bind_listen_on_v6|none|Listening addresses for IPV6. Values : none, any, localhost, localnet. An ip sequence can also be given (Example : "127.0.0.1; 192.168.0.1").
+bind_listen_on|any|Listening addresses and port. {"ip":"@someip", "port":"@someport"} format. The ip attribute can take the following values : any, none, localhost, localnet or an ip sequence (Example : "127.0.0.1; 192.168.0.1").
+bind_listen_on_v6|none|Listening addresses for IPv6 and port. {"ip":"@someip", "port":"@someport"} format. The ip attribute can take the following values : any, none, localhost, localnet or an ip sequence (Example : "::1;").
 
 
 ### Master
@@ -40,7 +40,7 @@ bind_listen_on_v6|none|Listening addresses for IPV6. Values : none, any, localho
 |----|----|-------|
 bind_is_master|no| Is the node a master. 'yes' or 'no'.
 bind_mail||The zone email. Defined automatically if not set (to $user.$domain).
-bind_master_entries|| Zone entries. List of {"name":"something", "ip": "some ip"}.
+bind_master_entries|| Zone entries. List of {"name":"@something", "ip": "@someip"}.
 bind_slave_hosts|| List of slaves (Allow transfer).
 bind_notify|no| 
 
