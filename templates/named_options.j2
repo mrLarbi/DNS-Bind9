@@ -11,4 +11,7 @@ options {
         dnssec-validation auto;
         auth-nxdomain no;
         version none;
+
+        listen-on { {{ bind_listen_on }}; }
+        listen-on-v6 { {{ bind_listen_on_v6 }}; }
 };
