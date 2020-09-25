@@ -10,7 +10,7 @@
 
 - name: Configure DNS Cache
   include: configure_options.yml
-  when: bind_is_master == True
+  when: bind_is_caching == True
   
 - name: Configure DNS Master
   include: configure_master.yml
